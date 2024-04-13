@@ -23,8 +23,8 @@
 
 ## Packages
 
-- npm i express express-graphql
-- npm i graphql
+- npm i express express-graphql --legacy-peer-deps --save
+- npm i graphql --legacy-peer-deps --save
 - npm i nodemon -g
 - npm i lodash --legacy-peer-deps --save
 - npm i mongoose --legacy-peer-deps --save

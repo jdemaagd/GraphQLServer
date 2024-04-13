@@ -5,10 +5,10 @@ const Hobby = require('../model/hobby');
 const Post = require('../model/post');
 
 const {
-    GraphQLID,
     GraphQLList,
     GraphQLObjectType,
-    GraphQLSchema
+    GraphQLSchema,
+    GraphQLString
 } = graphql;
 
 const {
@@ -31,7 +31,7 @@ const RootQuery = new GraphQLObjectType({
     fields: {
         user: {
             type: UserType,
-            args: {id: {type: GraphQLID}},
+            args: {id: {type: GraphQLString}},
             resolve(parent, args) {
                 // return _.find(usersData, {id: args.id});
                 return User.findById(args.id);
@@ -46,7 +46,7 @@ const RootQuery = new GraphQLObjectType({
         },
         hobby: {
             type: HobbyType,
-            args: {id: {type: GraphQLID}},
+            args: {id: {type: GraphQLString}},
             resolve(parent, args) {
                 // return _.find(hobbiesData, {id: args.id});
                 return Hobby.findById(args.id);
@@ -62,7 +62,7 @@ const RootQuery = new GraphQLObjectType({
         },
         post: {
             type: PostType,
-            args: {id: {type: GraphQLID}},
+            args: {id: {type: GraphQLString}},
             resolve(parent, args) {
                 // return _.find(postsData, {id: args.id});
                 return Post.findById(args.id);

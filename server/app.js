@@ -15,7 +15,7 @@ const DB = process.env.MONGO_DB.replace(
     '<PASSWORD>',
     process.env.MONGO_DB_PASSWORD
 );
-// console.log(`Mongo Atlas DB URI: ${DB}`);
+console.log(`Mongo Atlas DB URI: ${DB}`);
 mongoose.connect(DB).then(() => console.log('DB connection successful!'));
 
 app.use(cors());

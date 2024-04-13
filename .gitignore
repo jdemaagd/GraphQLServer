@@ -131,6 +131,7 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-config.env
+server/config.env
+package-lock.json
 
 *.pdf
