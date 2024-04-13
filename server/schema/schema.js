@@ -1,5 +1,4 @@
 const graphql = require('graphql');
-const _ = require('lodash');
 const User = require('../model/user');
 const Hobby = require('../model/hobby');
 const Post = require('../model/post');
@@ -17,12 +16,6 @@ const {
     PostType
 } = require('./type');
 
-// const {
-//     usersData,
-//     hobbiesData,
-//     postsData
-// } = require('../model/mock');
-
 const { Mutation } = require('./mutation');
 
 const RootQuery = new GraphQLObjectType({
@@ -33,14 +26,12 @@ const RootQuery = new GraphQLObjectType({
             type: UserType,
             args: {id: {type: GraphQLString}},
             resolve(parent, args) {
-                // return _.find(usersData, {id: args.id});
                 return User.findById(args.id);
             }
         },
         users: {
             type: new GraphQLList(UserType),
             resolve(parent, args){
-                // return usersData;
                 return User.find({});
             }
         },
@@ -48,15 +39,12 @@ const RootQuery = new GraphQLObjectType({
             type: HobbyType,
             args: {id: {type: GraphQLString}},
             resolve(parent, args) {
-                // return _.find(hobbiesData, {id: args.id});
                 return Hobby.findById(args.id);
             }
         },
         hobbies: {
             type: new GraphQLList(HobbyType),
             resolve(parent, args) {
-                // console.log("Hello World Hobbies! " + parent.userId);
-                // return hobbiesData;
                 return Hobby.find({id: args.userId});
             }
         },
@@ -64,14 +52,12 @@ const RootQuery = new GraphQLObjectType({
             type: PostType,
             args: {id: {type: GraphQLString}},
             resolve(parent, args) {
-                // return _.find(postsData, {id: args.id});
                 return Post.findById(args.id);
             }
         },
         posts: {
             type: new GraphQLList(PostType),
             resolve(parent, args){
-                // return postsData;
                 return Post.find({});
             }
         }

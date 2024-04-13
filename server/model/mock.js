@@ -1,5 +1,3 @@
-// Mock Data
-
 const usersData = [
     {id: '1', name: 'Jon', age: 36, profession: 'Android Architect/Principal Engineer'},
     {id: '13', name: 'Caitlin', age: 26, profession: 'Veterinarian'},
