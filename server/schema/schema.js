@@ -1,4 +1,11 @@
 const graphql = require('graphql');
+const _ = require('lodash');
+
+const {
+    usersData,
+    hobbiesData,
+    postsData
+} = require('../model/mock');
 
 const {
     GraphQLObjectType,
@@ -6,15 +13,60 @@ const {
     GraphQLString,
     GraphQLInt,
     GraphQLSchema,
+    GraphQLList
 } = graphql;
 
 const UserType = new GraphQLObjectType({
     name: 'User',
     description: 'Documentation for user...',
     fields: () => ({
-        id: { type: GraphQLID },
-        name: { type: GraphQLString },
-        age: { type: GraphQLInt }
+        id: {type: GraphQLID},
+        name: {type: GraphQLString},
+        age: {type: GraphQLInt},
+        profession: {type: GraphQLString},
+        posts: {
+            type: new GraphQLList(PostType),
+            resolve(parent, args) {
+                return _.filter(postsData, {userId: parent.id});
+            }
+        },
+        hobbies: {
+            type: new GraphQLList(HobbyType),
+            resolve(parent, args) {
+                return _.filter(hobbiesData, {userId: parent.id});
+            }
+        }
+    })
+});
+
+const HobbyType = new GraphQLObjectType({
+    name: 'Hobby',
+    description: 'Hobby description',
+    fields: () => ({
+        id: {type: GraphQLID},
+        title: {type: GraphQLString},
+        description: {type: GraphQLString},
+        user: {
+            type: UserType,
+            resolve(parent, args) {
+                return _.find(usersData, {id: parent.userId});
+            }
+        }
+    })
+});
+
+const PostType = new GraphQLObjectType({
+    name: 'Post',
+    description: 'Post description',
+    fields: () => ({
+        id: {type: GraphQLID},
+        comment: {type: GraphQLString},
+        user: {
+            type: UserType,
+            resolve(parent, args) {
+                return _.find(usersData, {id: parent.userId});
+            }
+        }
     })
 });
 
@@ -24,14 +76,28 @@ const RootQuery = new GraphQLObjectType({
     fields: {
         user: {
             type: UserType,
-            args: { id: { type: GraphQLID } },
+            args: {id: {type: GraphQLID}},
             resolve(parent, args) {
-                // code to get data from db / other source
+                return _.find(usersData, {id: args.id});
             }
-        }
+        },
+        hobby: {
+            type: HobbyType,
+            args: {id: {type: GraphQLID}},
+            resolve(parent, args) {
+                return _.find(hobbiesData, {id: args.id});
+            }
+        },
+        post: {
+            type: PostType,
+            args: {id: {type: GraphQLID}},
+            resolve(parent, args) {
+                return _.find(postsData, {id: args.id});
+            }
+        },
     }
 });
 
 module.exports = new GraphQLSchema({
     query: RootQuery
-})
+});

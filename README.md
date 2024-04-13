@@ -23,11 +23,12 @@
 
 ## Packages
 
-- npm install express express-graphql
-- npm install graphql
-- npm install nodemon -g
+- npm i express express-graphql
+- npm i graphql
+- npm i nodemon -g
+- npm install lodash --legacy-peer-deps --save
 - nodemon app
 
 ## Resources
 
-- []()
+- [Lodash](https://lodash.com/)
