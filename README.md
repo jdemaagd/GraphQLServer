@@ -32,3 +32,4 @@
 ## Resources
 
 - [Lodash](https://lodash.com/)
+- [Queries and Mutations](https://graphql.org/learn/queries/)
