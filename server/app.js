@@ -2,6 +2,7 @@ const express = require('express');
 const graphqlHTTP = require('express-graphql').graphqlHTTP;
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const cors = require('cors');
 
 dotenv.config({ path: './config.env' });
 
@@ -17,6 +18,7 @@ const DB = process.env.MONGO_DB.replace(
 // console.log(`Mongo Atlas DB URI: ${DB}`);
 mongoose.connect(DB).then(() => console.log('DB connection successful!'));
 
+app.use(cors());
 app.use('/graphql', graphqlHTTP({
     graphiql: true,
     schema: schema

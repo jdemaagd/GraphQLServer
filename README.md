@@ -29,7 +29,16 @@
 - npm i lodash --legacy-peer-deps --save
 - npm i mongoose --legacy-peer-deps --save
 - npm i dotenv --legacy-peer-deps --save
+- npm i cors --legacy-peer-deps --save
 - nodemon app
+
+## Heroku
+
+- npm install -g heroku
+- heroku --version
+- heroku login
+- git acm 'chore: deploy to heroku'
+- git push heroku master
 
 ## Resources
 
