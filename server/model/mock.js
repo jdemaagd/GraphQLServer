@@ -3,9 +3,9 @@
 const usersData = [
     {id: '1', name: 'Jon', age: 36, profession: 'Android Architect/Principal Engineer'},
     {id: '13', name: 'Caitlin', age: 26, profession: 'Veterinarian'},
-    {id: '211', name: 'Angelina', age: 16, profession: 'Star'},
-    {id: '19', name: 'Jennifer', age: 26, profession: 'Home Maker'},
-    {id: '150', name: 'Nicole', age: 36, profession: 'Free Lancer'}
+    {id: '211', name: 'Angelina', age: 27, profession: 'Star'},
+    {id: '19', name: 'Jennifer', age: 29, profession: 'Home Maker'},
+    {id: '150', name: 'Nicole', age: 23, profession: 'Free Lancer'}
 ];
 
 const hobbiesData = [

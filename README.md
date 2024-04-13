@@ -26,10 +26,14 @@
 - npm i express express-graphql
 - npm i graphql
 - npm i nodemon -g
-- npm install lodash --legacy-peer-deps --save
+- npm i lodash --legacy-peer-deps --save
+- npm i mongoose --legacy-peer-deps --save
+- npm i dotenv --legacy-peer-deps --save
 - nodemon app
 
 ## Resources
 
 - [Lodash](https://lodash.com/)
 - [Queries and Mutations](https://graphql.org/learn/queries/)
+- [MongoDB](https://cloud.mongodb.com/)
+- [Mongoose Queries](https://mongoosejs.com/docs/queries.html)

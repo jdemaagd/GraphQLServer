@@ -8,11 +8,11 @@ const {
 } = require("../model/mock");
 
 const {
-    GraphQLObjectType,
     GraphQLID,
-    GraphQLString,
     GraphQLInt,
-    GraphQLList
+    GraphQLList,
+    GraphQLObjectType,
+    GraphQLString
 } = graphql;
 
 const UserType = new GraphQLObjectType({
